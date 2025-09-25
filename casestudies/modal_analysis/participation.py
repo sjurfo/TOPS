@@ -97,7 +97,7 @@ class EigenvaluePlotter:
 
 
 def main():
-    import casestudies.ps_data.k2a_regulated as model_data
+    import casestudies.ps_data.ma_4bus as model_data
     model = model_data.load()
     ps = dps.PowerSystemModel(model=model)
     ps.init_dyn_sim()
