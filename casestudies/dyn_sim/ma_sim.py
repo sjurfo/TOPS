@@ -11,7 +11,7 @@ importlib.reload(dps)
 if __name__ == '__main__':
 
     # region Model loading and initialisation stage
-    import casestudies.ps_data.k2a_unregulated as model_data
+    import casestudies.ps_data.ma_4bus as model_data
     model = model_data.load()
     ps = dps.PowerSystemModel(model=model)  # Load into a PowerSystemModel object
 
@@ -52,10 +52,10 @@ if __name__ == '__main__':
         v = sol.v
         t = sol.t
 
-        if 1 < t < 1.005:
-            ps.y_bus_red_mod[6,6] = 1e6
+        if 1 < t < 1.05:
+            ps.y_bus_red_mod[3,3] = 1e6
         else:
-            ps.y_bus_red_mod[6,6] = 0
+            ps.y_bus_red_mod[3,3] = 0
 
         # region Store variables
         result_dict['Global', 't'].append(sol.t)
